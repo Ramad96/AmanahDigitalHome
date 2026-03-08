@@ -207,11 +207,15 @@
     /* ── Products grid ── */
     .products {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 900px) {
+      .products { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 580px) {
       .products { grid-template-columns: 1fr; }
     }
 
@@ -234,6 +238,7 @@
 
     .product-card:nth-child(1) { animation: fadeUp 0.9s 0.5s ease forwards; }
     .product-card:nth-child(2) { animation: fadeUp 0.9s 0.65s ease forwards; }
+    .product-card:nth-child(3) { animation: fadeUp 0.9s 0.8s ease forwards; }
 
     .product-card::before {
       content: '';
@@ -438,32 +443,21 @@
 
       <!-- Card 1: Sadaqah Jariyah Radio -->
       <a href="https://radio.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card">
-        <!-- corner geometric -->
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
-
         <p class="product-number">01 / Giving</p>
-
-        <!-- Open book icon -->
         <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Left page -->
           <path d="M24 38 C24 38 14 35 8 36 L8 12 C14 11 24 14 24 14 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <!-- Right page -->
           <path d="M24 38 C24 38 34 35 40 36 L40 12 C34 11 24 14 24 14 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <!-- Spine -->
           <line x1="24" y1="14" x2="24" y2="38" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <!-- Left page lines -->
-          <line x1="12" y1="20" x2="21" y2="21" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-          <line x1="12" y1="24" x2="21" y2="25" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+                    <line x1="12" y1="24" x2="21" y2="25" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
           <line x1="12" y1="28" x2="21" y2="29" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-          <!-- Right page lines -->
           <line x1="27" y1="21" x2="36" y2="20" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
           <line x1="27" y1="25" x2="36" y2="24" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
           <line x1="27" y1="29" x2="36" y2="28" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
         </svg>
-
         <h2 class="product-name">Sadaqah Jariyah<br />Radio</h2>
         <p class="product-desc">
           Earn continuous reward through the gift of knowledge and recitation. A dedicated stream of Quranic audio and Islamic content — your sadaqah jariyah, always flowing.
@@ -482,23 +476,17 @@
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
-
         <p class="product-number">02 / Prayer</p>
-
-        <!-- Moon/prayer icon -->
         <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M28 8 C20 10 14 18 14 26 C14 35 21 42 30 42 C35 42 40 39 43 34 C38 35 32 32 29 27 C26 22 27 15 28 8Z"
-            stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M28 8 C20 10 14 18 14 26 C14 35 21 42 30 42 C35 42 40 39 43 34 C38 35 32 32 29 27 C26 22 27 15 28 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M34 12 L34 16 M32 14 L36 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           <path d="M38 22 L38 25 M36.5 23.5 L39.5 23.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-          <!-- tally marks -->
           <line x1="6"  y1="10" x2="6"  y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="9"  y1="10" x2="9"  y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="12" y1="10" x2="12" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="15" y1="10" x2="15" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
           <line x1="5"  y1="13" x2="17" y2="17" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
         </svg>
-
         <h2 class="product-name">Taraaweeh<br />Counter</h2>
         <p class="product-desc">
           Track your Taraaweeh rakaat throughout Ramadan with a clean, distraction-free counter. Stay present in your worship while keeping a meaningful record of your nights.
@@ -527,7 +515,31 @@
         </div>
       </div>
 
-    </div>
+      <!-- Card 3: Islamic Quiz -->
+      <a href="https://quiz.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card">
+        <svg class="corner" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
+            stroke="#c9a84c" stroke-width="0.8" fill="none"/>
+        </svg>
+        <p class="product-number">03 / Knowledge</p>
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12h36v24H6z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 20h24M12 28h24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="24" cy="36" r="2" fill="currentColor"/>
+        </svg>
+        <h2 class="product-name">Islamic<br />Quiz</h2>
+        <p class="product-desc">
+          Test and expand your Islamic knowledge with an easy-to-use interactive quiz that runs directly from your browser. Learn while having fun!
+        </p>
+        <span class="product-cta">
+          Try Quiz
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      </div>
     </div>
   </div>
 
