@@ -611,152 +611,6 @@
       50% { opacity: 0.3; }
     }
 
-    /* ── Demo Panel ── */
-    #demo-panel {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(10, 10, 12, 0.96);
-      backdrop-filter: blur(12px);
-      overflow-y: auto;
-    }
-
-    #demo-panel.visible {
-      display: block;
-      animation: fadeUp 0.4s ease forwards;
-    }
-
-    .demo-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3rem 2rem 4rem;
-    }
-
-    .demo-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2.5rem;
-    }
-
-    .demo-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--text);
-      letter-spacing: 0.02em;
-    }
-
-    .demo-title span { color: var(--gold); }
-
-    .demo-close {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.6rem 1.1rem;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: color 0.3s, border-color 0.3s;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .demo-close:hover {
-      color: var(--text);
-      border-color: var(--gold);
-    }
-
-    .demo-eyebrow {
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .demo-description {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .demo-placeholder {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .demo-placeholder-icon {
-      width: 52px;
-      height: 52px;
-      color: var(--gold);
-      margin: 0 auto 1.5rem;
-      opacity: 0.6;
-    }
-
-    .demo-placeholder-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-    }
-
-    .demo-placeholder-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    .demo-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      .demo-features { grid-template-columns: 1fr; }
-    }
-
-    .demo-feature {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.25rem 1.5rem;
-    }
-
-    .demo-feature-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-
-    .demo-feature-text {
-      font-size: 0.875rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .demo-note {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 2rem;
-      letter-spacing: 0.05em;
-      font-style: italic;
-    }
   </style>
 </head>
 <body>
@@ -928,22 +782,14 @@
         </svg>
         <h2 class="product-name" style="opacity:0.85;">Noor<br /><span style="font-size:1.2rem;opacity:0.6;">A Better Ramadan</span></h2>
         <p class="product-desc">
-          Track the five pillars of Ramadan — Fasting, Salah, Dhikr, Quran, and Sadaqah — in one beautiful, distraction-free app. Your spiritual companion this blessed month.
+          Goal-orientated growth through your Ramadan — nurture all five pillars with Noor. Fasting, Salah, Dhikr, Quran, and Sadaqah, woven into one beautiful, distraction-free companion.
         </p>
-        <div class="card-actions">
-          <button class="product-cta-primary" id="noor-waitlist-btn">
-            Join the Waitlist
-            <svg viewBox="0 0 12 12" fill="none">
-              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <button class="watch-badge" id="noor-demo-btn" style="background:none;cursor:pointer;">
-            Preview Demo
-            <svg viewBox="0 0 12 12" fill="none" style="width:11px;height:11px;">
-              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
+        <button class="product-cta-primary" id="noor-waitlist-btn">
+          Join the Waitlist
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
       </div>
 
       </div>
@@ -964,72 +810,12 @@
       <button id="waitlist-close-btn" style="position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);font-size:0.8rem;letter-spacing:0.1em;padding:0.4rem 0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;border-radius:2px;">Close</button>
       <p style="font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Coming Soon</p>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--gold);">Noor</span> · A Better Ramadan</h2>
-      <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;">Be the first to know when Noor launches. Track all five pillars of Ramadan in one beautiful, distraction-free app.</p>
+      <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;">Be the first to know when Noor launches — goal-orientated growth across all five pillars of Ramadan, in one beautiful, distraction-free companion.</p>
       <div id="waitlist-form">
         <input id="waitlist-email-input" type="email" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:2px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;margin-bottom:0.75rem;"/>
         <button id="waitlist-submit-btn" style="width:100%;background:var(--gold);border:1px solid var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.85rem;border-radius:2px;cursor:pointer;transition:opacity 0.2s;">Notify Me</button>
         <p id="waitlist-msg" style="margin-top:0.75rem;font-size:0.8rem;text-align:center;min-height:1.2em;"></p>
       </div>
-    </div>
-  </div>
-
-  <!-- Demo Panel: Noor -->
-  <div id="demo-panel" role="dialog" aria-label="Noor Demo" aria-modal="true">
-    <div class="demo-inner">
-      <div class="demo-header">
-        <h2 class="demo-title"><span>Noor</span> · A Better Ramadan</h2>
-        <button class="demo-close" id="demo-close-btn">Close</button>
-      </div>
-
-      <p class="demo-eyebrow">Interactive Demo</p>
-      <p class="demo-description">
-        Track your Sawm, Salah, Dhikr, Quran, and Sadaqah all in one place. Tap a pillar to explore — this is a fully interactive preview, in sha Allah.
-      </p>
-
-      <!-- Phone frame wrapping the Noor React app -->
-      <div style="display:flex; justify-content:center; margin-bottom:1.5rem;">
-        <div style="width:320px; background:#0d0b18; border-radius:36px; border:1px solid rgba(201,168,76,0.2); overflow:hidden; box-shadow:0 0 60px rgba(201,168,76,0.05);">
-          <!-- Phone notch -->
-          <div style="height:28px; background:#0d0b18; display:flex; justify-content:center; align-items:center;">
-            <div style="width:80px; height:6px; background:#1a1826; border-radius:3px;"></div>
-          </div>
-          <iframe
-            src=""
-            id="noor-iframe"
-            style="width:100%; height:640px; border:none; display:block;"
-            title="Noor Ramadan App Demo"
-          ></iframe>
-        </div>
-      </div>
-
-      <div class="demo-features">
-        <div class="demo-feature">
-          <p class="demo-feature-label">🌙 Sawm</p>
-          <p class="demo-feature-text">Mark your daily fasts on a 30-day Ramadan calendar with streak tracking.</p>
-        </div>
-        <div class="demo-feature">
-          <p class="demo-feature-label">🕌 Salah</p>
-          <p class="demo-feature-text">Check off each prayer including Taraweeh, with weekly goal progress.</p>
-        </div>
-        <div class="demo-feature">
-          <p class="demo-feature-label">📿 Dhikr</p>
-          <p class="demo-feature-text">Tap-counter for SubhanAllah, Alhamdulillah, Allahu Akbar, and Astaghfirullah.</p>
-        </div>
-        <div class="demo-feature">
-          <p class="demo-feature-label">📖 Quran</p>
-          <p class="demo-feature-text">Track your Khatm juz by juz and log your daily pages toward your goal.</p>
-        </div>
-        <div class="demo-feature">
-          <p class="demo-feature-label">💝 Sadaqah</p>
-          <p class="demo-feature-text">Log acts of giving and track your monthly charity goal.</p>
-        </div>
-        <div class="demo-feature">
-          <p class="demo-feature-label">✨ Overall Progress</p>
-          <p class="demo-feature-text">A single "Light" percentage across all five pillars — your Ramadan at a glance.</p>
-        </div>
-      </div>
-
-      <p class="demo-note">Noor is in development. May Allah place barakah in this work and make it a benefit to the Ummah.</p>
     </div>
   </div>
 
@@ -1107,36 +893,6 @@
         });
       });
 
-      // ── Noor card buttons ──
-      var demoPanel    = document.getElementById('demo-panel');
-      var demoCloseBtn = document.getElementById('demo-close-btn');
-      var noorIframe   = document.getElementById('noor-iframe');
-
-      function openDemo() {
-        if (!noorIframe.src || noorIframe.src === window.location.href) {
-          noorIframe.src = 'noor-demo.html';
-        }
-        demoPanel.classList.add('visible');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeDemo() {
-        demoPanel.classList.remove('visible');
-        document.body.style.overflow = '';
-      }
-
-      var demoBtnEl = document.getElementById('noor-demo-btn');
-      if (demoBtnEl) {
-        demoBtnEl.addEventListener('click', function (e) {
-          e.stopPropagation();
-          if (sb) sb.rpc('increment_card_click', { card: 'coming-soon' }).catch(function(){});
-          openDemo();
-        });
-      }
-
-      demoCloseBtn.addEventListener('click', closeDemo);
-      demoPanel.addEventListener('click', function (e) { if (e.target === demoPanel) closeDemo(); });
-
       // ── Noor waitlist modal ──
       var waitlistModal     = document.getElementById('waitlist-modal');
       var waitlistCloseBtn  = document.getElementById('waitlist-close-btn');
@@ -1178,6 +934,7 @@
         waitlistMsg.textContent = '';
         var result = await sb.from('waitlist').insert({ email: email });
         if (result.error) {
+          console.error('Waitlist insert error:', result.error);
           var isDuplicate = result.error.code === '23505';
           waitlistMsg.style.color = isDuplicate ? 'var(--gold)' : '#e8a8a8';
           waitlistMsg.textContent = isDuplicate ? 'This email is already on the list.' : 'Something went wrong. Please try again.';
@@ -1195,7 +952,7 @@
       waitlistSubmitBtn.addEventListener('click', submitWaitlist);
       waitlistEmailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitWaitlist(); });
 
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDemo(); closeWaitlist(); } });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePeek(); closeWaitlist(); } });
 
       // ── Logo click counter (5 taps to open) ──
       let tapCount = 0;
