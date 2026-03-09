@@ -319,6 +319,31 @@
 
     .product-card:hover .product-cta svg { transform: translateX(3px); }
 
+    .product-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      padding: 0.75rem 1.25rem;
+      align-self: flex-start;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.3s ease, opacity 0.3s ease;
+    }
+
+    .product-cta-primary:hover { opacity: 0.85; }
+
+    .product-cta-primary svg {
+      width: 12px;
+      height: 12px;
+    }
+
     /* card corner decorations */
     .corner {
       position: absolute;
@@ -905,12 +930,20 @@
         <p class="product-desc">
           Track the five pillars of Ramadan — Fasting, Salah, Dhikr, Quran, and Sadaqah — in one beautiful, distraction-free app. Your spiritual companion this blessed month.
         </p>
-        <span class="product-cta">
-          Preview Demo
-          <svg viewBox="0 0 12 12" fill="none">
-            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <div class="card-actions">
+          <button class="product-cta-primary" id="noor-waitlist-btn">
+            Join the Waitlist
+            <svg viewBox="0 0 12 12" fill="none">
+              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="watch-badge" id="noor-demo-btn" style="background:none;cursor:pointer;">
+            Preview Demo
+            <svg viewBox="0 0 12 12" fill="none" style="width:11px;height:11px;">
+              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
 
       </div>
@@ -923,6 +956,21 @@
       <span class="footer-brand">Amanah Digital</span>
       <span class="footer-copy">© 2025 · Built with intention</span>
     </footer>
+  </div>
+
+  <!-- Waitlist Modal: Noor -->
+  <div id="waitlist-modal" role="dialog" aria-label="Join the Noor Waitlist" aria-modal="true" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);overflow-y:auto;animation:fadeUp 0.3s ease forwards;">
+    <div style="max-width:480px;margin:10vh auto;padding:2.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;position:relative;">
+      <button id="waitlist-close-btn" style="position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);font-size:0.8rem;letter-spacing:0.1em;padding:0.4rem 0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;border-radius:2px;">Close</button>
+      <p style="font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Coming Soon</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--gold);">Noor</span> · A Better Ramadan</h2>
+      <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;">Be the first to know when Noor launches. Track all five pillars of Ramadan in one beautiful, distraction-free app.</p>
+      <div id="waitlist-form">
+        <input id="waitlist-email-input" type="email" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:2px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;margin-bottom:0.75rem;"/>
+        <button id="waitlist-submit-btn" style="width:100%;background:var(--gold);border:1px solid var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.85rem;border-radius:2px;cursor:pointer;transition:opacity 0.2s;">Notify Me</button>
+        <p id="waitlist-msg" style="margin-top:0.75rem;font-size:0.8rem;text-align:center;min-height:1.2em;"></p>
+      </div>
+    </div>
   </div>
 
   <!-- Demo Panel: Noor -->
@@ -946,7 +994,7 @@
             <div style="width:80px; height:6px; background:#1a1826; border-radius:3px;"></div>
           </div>
           <iframe
-            src="noor-demo.html"
+            src=""
             id="noor-iframe"
             style="width:100%; height:640px; border:none; display:block;"
             title="Noor Ramadan App Demo"
@@ -1059,12 +1107,15 @@
         });
       });
 
-      // ── Coming Soon card → open demo panel ──
-      var comingSoonCard = document.getElementById('coming-soon-card');
-      var demoPanel      = document.getElementById('demo-panel');
-      var demoCloseBtn   = document.getElementById('demo-close-btn');
+      // ── Noor card buttons ──
+      var demoPanel    = document.getElementById('demo-panel');
+      var demoCloseBtn = document.getElementById('demo-close-btn');
+      var noorIframe   = document.getElementById('noor-iframe');
 
       function openDemo() {
+        if (!noorIframe.src || noorIframe.src === window.location.href) {
+          noorIframe.src = 'noor-demo.html';
+        }
         demoPanel.classList.add('visible');
         document.body.style.overflow = 'hidden';
       }
@@ -1074,19 +1125,77 @@
         document.body.style.overflow = '';
       }
 
-      if (comingSoonCard) {
-        comingSoonCard.addEventListener('click', function () {
-          if (sb) {
-            sb.rpc('increment_card_click', { card: 'coming-soon' })
-              .catch(function (err) { console.error('Card click record failed:', err); });
-          }
+      var demoBtnEl = document.getElementById('noor-demo-btn');
+      if (demoBtnEl) {
+        demoBtnEl.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (sb) sb.rpc('increment_card_click', { card: 'coming-soon' }).catch(function(){});
           openDemo();
         });
       }
 
       demoCloseBtn.addEventListener('click', closeDemo);
       demoPanel.addEventListener('click', function (e) { if (e.target === demoPanel) closeDemo(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDemo(); });
+
+      // ── Noor waitlist modal ──
+      var waitlistModal     = document.getElementById('waitlist-modal');
+      var waitlistCloseBtn  = document.getElementById('waitlist-close-btn');
+      var waitlistEmailInput = document.getElementById('waitlist-email-input');
+      var waitlistSubmitBtn = document.getElementById('waitlist-submit-btn');
+      var waitlistMsg       = document.getElementById('waitlist-msg');
+      var waitlistBtnEl     = document.getElementById('noor-waitlist-btn');
+
+      function openWaitlist() {
+        waitlistModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        waitlistEmailInput.focus();
+      }
+
+      function closeWaitlist() {
+        waitlistModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      if (waitlistBtnEl) {
+        waitlistBtnEl.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openWaitlist();
+        });
+      }
+
+      waitlistCloseBtn.addEventListener('click', closeWaitlist);
+      waitlistModal.addEventListener('click', function (e) { if (e.target === waitlistModal) closeWaitlist(); });
+
+      async function submitWaitlist() {
+        var email = waitlistEmailInput.value.trim();
+        if (!email || !/\S+@\S+\.\S+/.test(email)) {
+          waitlistMsg.style.color = 'var(--muted)';
+          waitlistMsg.textContent = 'Please enter a valid email.';
+          return;
+        }
+        waitlistSubmitBtn.disabled = true;
+        waitlistSubmitBtn.textContent = '...';
+        waitlistMsg.textContent = '';
+        var result = await sb.from('waitlist').insert({ email: email });
+        if (result.error) {
+          var isDuplicate = result.error.code === '23505';
+          waitlistMsg.style.color = isDuplicate ? 'var(--gold)' : '#e8a8a8';
+          waitlistMsg.textContent = isDuplicate ? 'This email is already on the list.' : 'Something went wrong. Please try again.';
+          waitlistSubmitBtn.disabled = false;
+          waitlistSubmitBtn.textContent = 'Notify Me';
+        } else {
+          waitlistMsg.style.color = '#98d8a8';
+          waitlistMsg.textContent = 'You\'re on the list — JazakAllah Khair!';
+          waitlistEmailInput.value = '';
+          waitlistSubmitBtn.textContent = 'Notify Me';
+          waitlistSubmitBtn.disabled = false;
+        }
+      }
+
+      waitlistSubmitBtn.addEventListener('click', submitWaitlist);
+      waitlistEmailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitWaitlist(); });
+
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDemo(); closeWaitlist(); } });
 
       // ── Logo click counter (5 taps to open) ──
       let tapCount = 0;
