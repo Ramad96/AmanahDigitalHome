@@ -386,6 +386,173 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ── Analytics Panel ── */
+    #analytics-panel {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 12, 0.96);
+      backdrop-filter: blur(12px);
+      overflow-y: auto;
+    }
+
+    #analytics-panel.visible {
+      display: block;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .analytics-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .analytics-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .analytics-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .analytics-title span {
+      color: var(--gold);
+    }
+
+    .analytics-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.1rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: color 0.3s, border-color 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .analytics-close:hover {
+      color: var(--text);
+      border-color: var(--gold);
+    }
+
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .analytics-grid { grid-template-columns: 1fr; }
+    }
+
+    .analytics-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+    }
+
+    .analytics-card-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .analytics-big-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .analytics-section-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .analytics-full-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .analytics-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(42,44,50,0.6);
+    }
+
+    .analytics-row:last-child { border-bottom: none; }
+
+    .analytics-row-label {
+      font-size: 0.875rem;
+      color: var(--text);
+    }
+
+    .analytics-row-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold-lt);
+    }
+
+    .analytics-bar-wrap {
+      flex: 1;
+      margin: 0 1rem;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .analytics-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    .analytics-empty {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    .analytics-note {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .logo { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -442,7 +609,7 @@
       <div class="products">
 
       <!-- Card 1: Sadaqah Jariyah Radio -->
-      <a href="https://radio.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card">
+      <a href="https://radio.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="radio">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -471,7 +638,7 @@
       </a>
 
       <!-- Card 2: Taraaweeh Counter -->
-      <div class="product-card">
+      <div class="product-card" data-card="taraaweeh">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -516,7 +683,7 @@
       </div>
 
       <!-- Card 3: Islamic Quiz -->
-      <a href="https://quiz.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card">
+      <a href="https://quiz.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quiz">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -550,6 +717,186 @@
       <span class="footer-copy">© 2025 · Built with intention</span>
     </footer>
   </div>
+
+  <!-- Hidden Analytics Panel -->
+  <div id="analytics-panel" role="dialog" aria-label="Analytics" aria-modal="true">
+    <div class="analytics-inner">
+      <div class="analytics-header">
+        <h2 class="analytics-title"><span>Analytics</span> · Amanah Digital</h2>
+        <button class="analytics-close" id="analytics-close-btn">Close</button>
+      </div>
+
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <p class="analytics-card-label">Total Visits</p>
+          <p class="analytics-big-num" id="stat-total">0</p>
+        </div>
+        <div class="analytics-card">
+          <p class="analytics-card-label">Countries Reached</p>
+          <p class="analytics-big-num" id="stat-countries">0</p>
+        </div>
+      </div>
+
+      <div class="analytics-full-card">
+        <p class="analytics-section-title">Visits by Country</p>
+        <div id="stat-countries-list"><p class="analytics-empty">No visits recorded yet.</p></div>
+      </div>
+
+      <div class="analytics-full-card">
+        <p class="analytics-section-title">Card Interactions</p>
+        <div id="stat-cards-list"></div>
+      </div>
+
+      <p class="analytics-note">Analytics are stored globally and shared across all visitors.</p>
+    </div>
+  </div>
+
+  <!-- Supabase CDN (anon key is safe to expose — RLS enforces server-side access control) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script>
+    (function () {
+      // ── Supabase config — replace with your project values ──
+      const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
+      const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
+
+      const sb = (SUPABASE_URL !== 'YOUR_SUPABASE_URL')
+        ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON)
+        : null;
+
+      if (!sb) console.warn('Supabase not configured — analytics disabled.');
+
+      // ── Record visit on page load ──
+      async function recordVisit() {
+        if (!sb) return;
+        let country = 'Unknown';
+        try {
+          const res = await fetch('https://ipapi.co/json/');
+          if (res.ok) { const geo = await res.json(); country = geo.country_name || 'Unknown'; }
+        } catch {}
+        try {
+          await sb.from('ad_visits').insert({ country });
+        } catch (err) { console.error('Visit record failed:', err); }
+      }
+
+      recordVisit();
+
+      // ── Track card clicks (atomic via RPC — no race conditions) ──
+      document.querySelectorAll('.product-card[data-card]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          if (!sb) return;
+          sb.rpc('increment_card_click', { card: card.dataset.card })
+            .catch(function (err) { console.error('Card click record failed:', err); });
+        });
+      });
+
+      // ── Logo click counter (5 taps to open) ──
+      let tapCount = 0;
+      let tapTimer = null;
+      const logo = document.querySelector('.logo');
+
+      logo.addEventListener('click', function (e) {
+        e.preventDefault();
+        tapCount++;
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(function () { tapCount = 0; }, 2000);
+        if (tapCount >= 5) {
+          tapCount = 0;
+          openPanel();
+        }
+      });
+
+      // ── Panel open / close ──
+      const panel   = document.getElementById('analytics-panel');
+      const closeBtn = document.getElementById('analytics-close-btn');
+
+      function openPanel() {
+        renderAnalytics();
+        panel.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closePanel() {
+        panel.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closePanel);
+      panel.addEventListener('click', function (e) { if (e.target === panel) closePanel(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
+
+      // ── Render analytics data from Supabase ──
+      async function renderAnalytics() {
+        if (!sb) {
+          document.getElementById('stat-total').textContent = '—';
+          document.getElementById('stat-countries').textContent = '—';
+          document.getElementById('stat-countries-list').innerHTML = '<p class="analytics-empty">Supabase not configured.</p>';
+          document.getElementById('stat-cards-list').innerHTML = '<p class="analytics-empty">Supabase not configured.</p>';
+          return;
+        }
+
+        // Fetch visits
+        const { data: visits, error: visitsErr } = await sb
+          .from('ad_visits')
+          .select('country');
+
+        // Fetch card clicks
+        const { data: clicks, error: clicksErr } = await sb
+          .from('ad_card_clicks')
+          .select('card_id, click_count')
+          .order('click_count', { ascending: false });
+
+        // ── Total visits
+        const totalVisits = visits ? visits.length : 0;
+        document.getElementById('stat-total').textContent = visitsErr ? '—' : totalVisits;
+
+        // ── Visits by country
+        const byCountry = {};
+        if (visits) {
+          visits.forEach(function (v) {
+            const c = v.country || 'Unknown';
+            byCountry[c] = (byCountry[c] || 0) + 1;
+          });
+        }
+        const countryEntries = Object.entries(byCountry).sort(function (a, b) { return b[1] - a[1]; });
+        document.getElementById('stat-countries').textContent = visitsErr ? '—' : countryEntries.length;
+
+        const countryList = document.getElementById('stat-countries-list');
+        if (visitsErr) {
+          countryList.innerHTML = '<p class="analytics-empty">Could not load visit data.</p>';
+        } else if (countryEntries.length === 0) {
+          countryList.innerHTML = '<p class="analytics-empty">No visits recorded yet.</p>';
+        } else {
+          const maxVal = countryEntries[0][1];
+          countryList.innerHTML = countryEntries.map(function (entry) {
+            const pct = Math.round((entry[1] / maxVal) * 100);
+            return '<div class="analytics-row">' +
+              '<span class="analytics-row-label">' + entry[0] + '</span>' +
+              '<div class="analytics-bar-wrap"><div class="analytics-bar" style="width:' + pct + '%"></div></div>' +
+              '<span class="analytics-row-val">' + entry[1] + '</span>' +
+            '</div>';
+          }).join('');
+        }
+
+        // ── Card clicks
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz' };
+        const cardList = document.getElementById('stat-cards-list');
+        if (clicksErr || !clicks) {
+          cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
+        } else {
+          const maxClicks = Math.max(...clicks.map(function (r) { return r.click_count; }), 1);
+          cardList.innerHTML = clicks.map(function (row) {
+            const name = cardNames[row.card_id] || row.card_id;
+            const pct  = Math.round((row.click_count / maxClicks) * 100);
+            return '<div class="analytics-row">' +
+              '<span class="analytics-row-label">' + name + '</span>' +
+              '<div class="analytics-bar-wrap"><div class="analytics-bar" style="width:' + pct + '%"></div></div>' +
+              '<span class="analytics-row-val">' + row.click_count + '</span>' +
+            '</div>';
+          }).join('');
+        }
+      }
+    })();
+  </script>
 
 </body>
 </html>
