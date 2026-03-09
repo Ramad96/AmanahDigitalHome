@@ -239,6 +239,7 @@
     .product-card:nth-child(1) { animation: fadeUp 0.9s 0.5s ease forwards; }
     .product-card:nth-child(2) { animation: fadeUp 0.9s 0.65s ease forwards; }
     .product-card:nth-child(3) { animation: fadeUp 0.9s 0.8s ease forwards; }
+    .product-card:nth-child(4) { animation: fadeUp 0.9s 0.95s ease forwards; }
 
     .product-card::before {
       content: '';
@@ -553,6 +554,184 @@
     }
 
     .logo { cursor: pointer; }
+
+    /* ── Coming Soon badge ── */
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 2px;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+
+    .coming-soon-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── Demo Panel ── */
+    #demo-panel {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 12, 0.96);
+      backdrop-filter: blur(12px);
+      overflow-y: auto;
+    }
+
+    #demo-panel.visible {
+      display: block;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .demo-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    .demo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .demo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .demo-title span { color: var(--gold); }
+
+    .demo-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.1rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: color 0.3s, border-color 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .demo-close:hover {
+      color: var(--text);
+      border-color: var(--gold);
+    }
+
+    .demo-eyebrow {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .demo-description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .demo-placeholder {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-placeholder-icon {
+      width: 52px;
+      height: 52px;
+      color: var(--gold);
+      margin: 0 auto 1.5rem;
+      opacity: 0.6;
+    }
+
+    .demo-placeholder-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .demo-placeholder-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .demo-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .demo-features { grid-template-columns: 1fr; }
+    }
+
+    .demo-feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .demo-feature-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .demo-feature-text {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .demo-note {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 2rem;
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -706,6 +885,34 @@
         </span>
       </a>
 
+      <!-- Card 4: Noor (Coming Soon) -->
+      <div class="product-card" data-card="coming-soon" id="coming-soon-card" style="cursor:pointer;">
+        <svg class="corner" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
+            stroke="#c9a84c" stroke-width="0.8" fill="none"/>
+        </svg>
+        <p class="product-number">04 / Ramadan</p>
+        <div class="coming-soon-badge">Coming Soon</div>
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.85;">
+          <!-- Crescent moon -->
+          <path d="M30 10 C22 12 16 19 16 28 C16 37 22 44 31 44 C36 44 40 41 43 37 C38 38 32 35 29 30 C26 25 27 17 30 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Stars -->
+          <circle cx="36" cy="14" r="1.5" fill="currentColor" opacity="0.7"/>
+          <circle cx="40" cy="22" r="1" fill="currentColor" opacity="0.5"/>
+          <circle cx="34" cy="20" r="1" fill="currentColor" opacity="0.4"/>
+        </svg>
+        <h2 class="product-name" style="opacity:0.85;">Noor<br /><span style="font-size:1.2rem;opacity:0.6;">A Better Ramadan</span></h2>
+        <p class="product-desc">
+          Track the five pillars of Ramadan — Fasting, Salah, Dhikr, Quran, and Sadaqah — in one beautiful, distraction-free app. Your spiritual companion this blessed month.
+        </p>
+        <span class="product-cta">
+          Preview Demo
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+
       </div>
     </div>
   </div>
@@ -716,6 +923,66 @@
       <span class="footer-brand">Amanah Digital</span>
       <span class="footer-copy">© 2025 · Built with intention</span>
     </footer>
+  </div>
+
+  <!-- Demo Panel: Noor -->
+  <div id="demo-panel" role="dialog" aria-label="Noor Demo" aria-modal="true">
+    <div class="demo-inner">
+      <div class="demo-header">
+        <h2 class="demo-title"><span>Noor</span> · A Better Ramadan</h2>
+        <button class="demo-close" id="demo-close-btn">Close</button>
+      </div>
+
+      <p class="demo-eyebrow">Interactive Demo</p>
+      <p class="demo-description">
+        Track your Sawm, Salah, Dhikr, Quran, and Sadaqah all in one place. Tap a pillar to explore — this is a fully interactive preview, in sha Allah.
+      </p>
+
+      <!-- Phone frame wrapping the Noor React app -->
+      <div style="display:flex; justify-content:center; margin-bottom:1.5rem;">
+        <div style="width:320px; background:#0d0b18; border-radius:36px; border:1px solid rgba(201,168,76,0.2); overflow:hidden; box-shadow:0 0 60px rgba(201,168,76,0.05);">
+          <!-- Phone notch -->
+          <div style="height:28px; background:#0d0b18; display:flex; justify-content:center; align-items:center;">
+            <div style="width:80px; height:6px; background:#1a1826; border-radius:3px;"></div>
+          </div>
+          <iframe
+            src="noor-demo.html"
+            id="noor-iframe"
+            style="width:100%; height:640px; border:none; display:block;"
+            title="Noor Ramadan App Demo"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="demo-features">
+        <div class="demo-feature">
+          <p class="demo-feature-label">🌙 Sawm</p>
+          <p class="demo-feature-text">Mark your daily fasts on a 30-day Ramadan calendar with streak tracking.</p>
+        </div>
+        <div class="demo-feature">
+          <p class="demo-feature-label">🕌 Salah</p>
+          <p class="demo-feature-text">Check off each prayer including Taraweeh, with weekly goal progress.</p>
+        </div>
+        <div class="demo-feature">
+          <p class="demo-feature-label">📿 Dhikr</p>
+          <p class="demo-feature-text">Tap-counter for SubhanAllah, Alhamdulillah, Allahu Akbar, and Astaghfirullah.</p>
+        </div>
+        <div class="demo-feature">
+          <p class="demo-feature-label">📖 Quran</p>
+          <p class="demo-feature-text">Track your Khatm juz by juz and log your daily pages toward your goal.</p>
+        </div>
+        <div class="demo-feature">
+          <p class="demo-feature-label">💝 Sadaqah</p>
+          <p class="demo-feature-text">Log acts of giving and track your monthly charity goal.</p>
+        </div>
+        <div class="demo-feature">
+          <p class="demo-feature-label">✨ Overall Progress</p>
+          <p class="demo-feature-text">A single "Light" percentage across all five pillars — your Ramadan at a glance.</p>
+        </div>
+      </div>
+
+      <p class="demo-note">Noor is in development. May Allah place barakah in this work and make it a benefit to the Ummah.</p>
+    </div>
   </div>
 
   <!-- Hidden Analytics Panel -->
@@ -757,7 +1024,7 @@
     (function () {
       // ── Supabase config ──
       const SUPABASE_URL  = 'https://qsvzhstdkumfokrmqqrs.supabase.co';
-      const SUPABASE_ANON = 'sb_publishable_LeJ3LRnwnv_PU46DpqMywg_dts7npkl';
+      const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFzdnpoc3Rka3VtZm9rcm1xcXJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwOTIwNjIsImV4cCI6MjA4ODY2ODA2Mn0.GwT4jGkowVacjpVT80KpkQrRMxwRQa-NqEbQpXD4NDY';
 
       var sb = null;
       try {
@@ -791,6 +1058,35 @@
             .catch(function (err) { console.error('Card click record failed:', err); });
         });
       });
+
+      // ── Coming Soon card → open demo panel ──
+      var comingSoonCard = document.getElementById('coming-soon-card');
+      var demoPanel      = document.getElementById('demo-panel');
+      var demoCloseBtn   = document.getElementById('demo-close-btn');
+
+      function openDemo() {
+        demoPanel.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDemo() {
+        demoPanel.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+
+      if (comingSoonCard) {
+        comingSoonCard.addEventListener('click', function () {
+          if (sb) {
+            sb.rpc('increment_card_click', { card: 'coming-soon' })
+              .catch(function (err) { console.error('Card click record failed:', err); });
+          }
+          openDemo();
+        });
+      }
+
+      demoCloseBtn.addEventListener('click', closeDemo);
+      demoPanel.addEventListener('click', function (e) { if (e.target === demoPanel) closeDemo(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDemo(); });
 
       // ── Logo click counter (5 taps to open) ──
       let tapCount = 0;
@@ -881,7 +1177,7 @@
         }
 
         // ── Card clicks
-        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz' };
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'coming-soon': 'Noor · A Better Ramadan' };
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
