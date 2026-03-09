@@ -755,13 +755,16 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script>
     (function () {
-      // ── Supabase config — replace with your project values ──
-      const SUPABASE_URL  = 'YOUR_SUPABASE_URL';
-      const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
+      // ── Supabase config ──
+      const SUPABASE_URL  = 'https://qsvzhstdkumfokrmqqrs.supabase.co';
+      const SUPABASE_ANON = 'sb_publishable_LeJ3LRnwnv_PU46DpqMywg_dts7npkl';
 
-      const sb = (SUPABASE_URL !== 'YOUR_SUPABASE_URL')
-        ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON)
-        : null;
+      var sb = null;
+      try {
+        sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+      } catch (e) {
+        console.error('Supabase createClient failed:', e);
+      }
 
       if (!sb) console.warn('Supabase not configured — analytics disabled.');
 
