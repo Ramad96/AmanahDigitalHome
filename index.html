@@ -913,8 +913,7 @@
       }
 
       if (waitlistBtnEl) {
-        waitlistBtnEl.addEventListener('click', function (e) {
-          e.stopPropagation();
+        waitlistBtnEl.addEventListener('click', function () {
           openWaitlist();
         });
       }
@@ -952,7 +951,7 @@
       waitlistSubmitBtn.addEventListener('click', submitWaitlist);
       waitlistEmailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitWaitlist(); });
 
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closePeek(); closeWaitlist(); } });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeWaitlist(); } });
 
       // ── Logo click counter (5 taps to open) ──
       let tapCount = 0;
@@ -1047,6 +1046,8 @@
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
+        } else if (clicks.length === 0) {
+          cardList.innerHTML = '<p class="analytics-empty">No card interactions recorded yet.</p>';
         } else {
           const maxClicks = Math.max(...clicks.map(function (r) { return r.click_count; }), 1);
           cardList.innerHTML = clicks.map(function (row) {
