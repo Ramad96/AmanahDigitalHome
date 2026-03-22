@@ -620,6 +620,24 @@
       50% { opacity: 0.3; }
     }
 
+    /* ── Light mode (system preference) ── */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --black:   #FAF5EC;
+        --dark:    #F5F0E8;
+        --surface: #EDE7DB;
+        --border:  #C8BFB0;
+        --gold:    #A0601A;
+        --gold-lt: #C8884A;
+        --text:    #1C1610;
+        --muted:   #8B7A68;
+      }
+
+      .geo-bg { opacity: 0.06; }
+
+      body::after { opacity: 0.015; }
+    }
+
   </style>
 </head>
 <body>
