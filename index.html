@@ -240,6 +240,7 @@
     .product-card:nth-child(2) { animation: fadeUp 0.9s 0.65s ease forwards; }
     .product-card:nth-child(3) { animation: fadeUp 0.9s 0.8s ease forwards; }
     .product-card:nth-child(4) { animation: fadeUp 0.9s 0.95s ease forwards; }
+    .product-card:nth-child(5) { animation: fadeUp 0.9s 1.1s ease forwards; }
 
     .product-card::before {
       content: '';
@@ -792,13 +793,51 @@
         </span>
       </a>
 
-      <!-- Card 4: Noor (Coming Soon) -->
+      <!-- Card 4: QuranTogether -->
+      <a href="https://quran.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quran-together">
+        <svg class="corner" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
+            stroke="#c9a84c" stroke-width="0.8" fill="none"/>
+        </svg>
+        <p class="product-number">04 / Quran</p>
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Three people -->
+          <circle cx="16" cy="10" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="24" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="32" cy="10" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+          <!-- Connecting lines to book -->
+          <line x1="16" y1="12.5" x2="20" y2="19" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+          <line x1="24" y1="10.5" x2="24" y2="19" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+          <line x1="32" y1="12.5" x2="28" y2="19" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+          <!-- Open Quran -->
+          <path d="M24 21 L24 40" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M24 21 C19 19 12 21 10 23 L10 40 C12 38 19 37 24 39 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M24 21 C29 19 36 21 38 23 L38 40 C36 38 29 37 24 39 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Page lines -->
+          <line x1="13" y1="29" x2="21" y2="28.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+          <line x1="13" y1="33" x2="21" y2="32.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+          <line x1="27" y1="28.5" x2="35" y2="29" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+          <line x1="27" y1="32.5" x2="35" y2="33" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
+        </svg>
+        <h2 class="product-name">Quran<br />Together</h2>
+        <p class="product-desc">
+          Complete the Quran or 40 Yaseen as a group — dedicated to a loved one. Invite family and friends, claim your portion, and track progress together in real time.
+        </p>
+        <span class="product-cta">
+          Open Website
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Card 5: Noor (Coming Soon) -->
       <div class="product-card" data-card="coming-soon" id="coming-soon-card" style="cursor:pointer;">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
-        <p class="product-number">04 / Ramadan</p>
+        <p class="product-number">05 / Ramadan</p>
         <div class="coming-soon-badge">Coming Soon</div>
         <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.85;">
           <!-- Crescent moon -->
@@ -1070,7 +1109,7 @@
         }
 
         // ── Card clicks
-        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'coming-soon': 'Noor · A Better Ramadan' };
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'QuranTogether', 'coming-soon': 'Noor · A Better Ramadan' };
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
