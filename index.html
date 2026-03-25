@@ -793,7 +793,7 @@
         </span>
       </a>
 
-      <!-- Card 4: QuranTogether -->
+      <!-- Card 4: KhatamTogether -->
       <a href="https://quran.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quran-together">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
@@ -819,7 +819,7 @@
           <line x1="27" y1="28.5" x2="35" y2="29" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
           <line x1="27" y1="32.5" x2="35" y2="33" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.45"/>
         </svg>
-        <h2 class="product-name">Quran<br />Together</h2>
+        <h2 class="product-name">Khatam<br />Together</h2>
         <p class="product-desc">
           Complete the Quran or 40 Yaseen as a group — dedicated to a loved one. Invite family and friends, claim your portion, and track progress together in real time.
         </p>
@@ -831,15 +831,14 @@
         </span>
       </a>
 
-      <!-- Card 5: Noor (Coming Soon) -->
-      <div class="product-card" data-card="coming-soon" id="coming-soon-card" style="cursor:pointer;">
+      <!-- Card 5: Noor -->
+      <a href="https://apps.apple.com/gb/app/noor-daily-ibadah-tracker/id6760976099" target="_blank" rel="noopener" class="product-card" data-card="coming-soon">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
         <p class="product-number">05 / Ramadan</p>
-        <div class="coming-soon-badge">Coming Soon</div>
-        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.85;">
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Crescent moon -->
           <path d="M30 10 C22 12 16 19 16 28 C16 37 22 44 31 44 C36 44 40 41 43 37 C38 38 32 35 29 30 C26 25 27 17 30 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <!-- Stars -->
@@ -847,17 +846,17 @@
           <circle cx="40" cy="22" r="1" fill="currentColor" opacity="0.5"/>
           <circle cx="34" cy="20" r="1" fill="currentColor" opacity="0.4"/>
         </svg>
-        <h2 class="product-name" style="opacity:0.85;">Noor<br /><span style="font-size:1.2rem;opacity:0.6;">A Better Ramadan</span></h2>
+        <h2 class="product-name">Noor<br /><span style="font-size:1.2rem;opacity:0.6;">A Better Ramadan</span></h2>
         <p class="product-desc">
           Goal-orientated growth through your Ramadan — nurture all five pillars with Noor. Fasting, Salah, Dhikr, Quran, and Sadaqah, woven into one beautiful, distraction-free companion.
         </p>
-        <button class="product-cta-primary" id="noor-waitlist-btn">
-          Join the Waitlist
+        <span class="product-cta">
+          Open in App Store
           <svg viewBox="0 0 12 12" fill="none">
             <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </button>
-      </div>
+        </span>
+      </a>
 
       </div>
     </div>
@@ -869,21 +868,6 @@
       <span class="footer-brand">Amanah Digital</span>
       <span class="footer-copy">© 2025 · Built with intention</span>
     </footer>
-  </div>
-
-  <!-- Waitlist Modal: Noor -->
-  <div id="waitlist-modal" role="dialog" aria-label="Join the Noor Waitlist" aria-modal="true" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);overflow-y:auto;animation:fadeUp 0.3s ease forwards;">
-    <div style="max-width:480px;margin:10vh auto;padding:2.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;position:relative;">
-      <button id="waitlist-close-btn" style="position:absolute;top:1rem;right:1rem;background:none;border:1px solid var(--border);color:var(--muted);font-size:0.8rem;letter-spacing:0.1em;padding:0.4rem 0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;border-radius:2px;">Close</button>
-      <p style="font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">Coming Soon</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin-bottom:0.5rem;"><span style="color:var(--gold);">Noor</span> · A Better Ramadan</h2>
-      <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;">Be the first to know when Noor launches — goal-orientated growth across all five pillars of Ramadan, in one beautiful, distraction-free companion.</p>
-      <div id="waitlist-form">
-        <input id="waitlist-email-input" type="email" placeholder="your@email.com" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:2px;padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;margin-bottom:0.75rem;"/>
-        <button id="waitlist-submit-btn" style="width:100%;background:var(--gold);border:1px solid var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.85rem;border-radius:2px;cursor:pointer;transition:opacity 0.2s;">Notify Me</button>
-        <p id="waitlist-msg" style="margin-top:0.75rem;font-size:0.8rem;text-align:center;min-height:1.2em;"></p>
-      </div>
-    </div>
   </div>
 
   <!-- Hidden Analytics Panel -->
@@ -959,66 +943,6 @@
             .catch(function (err) { console.error('Card click record failed:', err); });
         });
       });
-
-      // ── Noor waitlist modal ──
-      var waitlistModal     = document.getElementById('waitlist-modal');
-      var waitlistCloseBtn  = document.getElementById('waitlist-close-btn');
-      var waitlistEmailInput = document.getElementById('waitlist-email-input');
-      var waitlistSubmitBtn = document.getElementById('waitlist-submit-btn');
-      var waitlistMsg       = document.getElementById('waitlist-msg');
-      var waitlistBtnEl     = document.getElementById('noor-waitlist-btn');
-
-      function openWaitlist() {
-        waitlistModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        waitlistEmailInput.focus();
-      }
-
-      function closeWaitlist() {
-        waitlistModal.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-
-      if (waitlistBtnEl) {
-        waitlistBtnEl.addEventListener('click', function () {
-          openWaitlist();
-        });
-      }
-
-      waitlistCloseBtn.addEventListener('click', closeWaitlist);
-      waitlistModal.addEventListener('click', function (e) { if (e.target === waitlistModal) closeWaitlist(); });
-
-      async function submitWaitlist() {
-        var email = waitlistEmailInput.value.trim();
-        if (!email || !/\S+@\S+\.\S+/.test(email)) {
-          waitlistMsg.style.color = 'var(--muted)';
-          waitlistMsg.textContent = 'Please enter a valid email.';
-          return;
-        }
-        waitlistSubmitBtn.disabled = true;
-        waitlistSubmitBtn.textContent = '...';
-        waitlistMsg.textContent = '';
-        var result = await sb.from('waitlist').insert({ email: email });
-        if (result.error) {
-          console.error('Waitlist insert error:', result.error);
-          var isDuplicate = result.error.code === '23505';
-          waitlistMsg.style.color = isDuplicate ? 'var(--gold)' : '#e8a8a8';
-          waitlistMsg.textContent = isDuplicate ? 'This email is already on the list.' : 'Something went wrong. Please try again.';
-          waitlistSubmitBtn.disabled = false;
-          waitlistSubmitBtn.textContent = 'Notify Me';
-        } else {
-          waitlistMsg.style.color = '#98d8a8';
-          waitlistMsg.textContent = 'You\'re on the list — JazakAllah Khair!';
-          waitlistEmailInput.value = '';
-          waitlistSubmitBtn.textContent = 'Notify Me';
-          waitlistSubmitBtn.disabled = false;
-        }
-      }
-
-      waitlistSubmitBtn.addEventListener('click', submitWaitlist);
-      waitlistEmailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submitWaitlist(); });
-
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeWaitlist(); } });
 
       // ── Logo click counter (5 taps to open) ──
       let tapCount = 0;
@@ -1109,7 +1033,7 @@
         }
 
         // ── Card clicks
-        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'QuranTogether', 'coming-soon': 'Noor · A Better Ramadan' };
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'KhatamTogether', 'coming-soon': 'Noor · A Better Ramadan' };
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
