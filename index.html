@@ -590,6 +590,24 @@
 
     .logo { cursor: pointer; }
 
+    /* ── Free badge ── */
+    .free-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6dbf8a;
+      background: rgba(109,191,138,0.12);
+      border: 1px solid rgba(109,191,138,0.3);
+      border-radius: 2px;
+      padding: 0.2rem 0.55rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
     /* ── Coming Soon badge ── */
     .coming-soon-badge {
       display: inline-flex;
@@ -674,7 +692,10 @@
           <span class="sub">Digital</span>
         </div>
       </a>
-      <span class="nav-tagline"><a href="#products" style="color:inherit;text-decoration:none;">Our Products</a></span>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <span class="nav-tagline"><a href="#products" style="color:inherit;text-decoration:none;">Our Products</a></span>
+        <span class="nav-tagline"><a href="https://support.amanahdigital.co.uk" style="color:inherit;text-decoration:none;" target="_blank" rel="noopener noreferrer">Support</a></span>
+      </div>
     </nav>
   </div>
 
@@ -761,6 +782,7 @@
               <line x1="9" y1="11" x2="10.4" y2="11" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
             </svg>
             Apple Watch App
+            <span class="free-badge">Free</span>
             <svg viewBox="0 0 12 12" fill="none" style="width:10px;height:10px;flex-shrink:0;">
               <path d="M2 2h8v8M10 2L2 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -852,6 +874,7 @@
         </p>
         <span class="product-cta">
           Open in App Store
+          <span class="free-badge">Free</span>
           <svg viewBox="0 0 12 12" fill="none">
             <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
