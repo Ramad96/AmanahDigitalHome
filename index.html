@@ -243,6 +243,7 @@
     .product-card:nth-child(5) { animation: fadeUp 0.9s 1.1s ease forwards; }
     .product-card:nth-child(6) { animation: fadeUp 0.9s 1.25s ease forwards; }
     .product-card:nth-child(7) { animation: fadeUp 0.9s 1.4s ease forwards; }
+    .product-card:nth-child(8) { animation: fadeUp 0.9s 1.55s ease forwards; }
 
     .product-card::before {
       content: '';
@@ -883,13 +884,43 @@
         </span>
       </a>
 
-      <!-- Card 6: Sabah -->
+      <!-- Card 6: Pebble -->
+      <a href="https://github.com/Ramad96/Pebble" target="_blank" rel="noopener" class="product-card" data-card="pebble">
+        <svg class="corner" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
+            stroke="#c9a84c" stroke-width="0.8" fill="none"/>
+        </svg>
+        <p class="product-number">06 / Dhikr</p>
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M24 12 L24 24 L32 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 28 L24 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 24 H18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M30 16 L34 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h2 class="product-name">Pebble<br /><span style="font-size:1.2rem;opacity:0.6;">Dhikr Tracker</span></h2>
+        <p class="product-desc">
+          A macOS menu bar app that helps you track your dhikr through the day while at your desk. Quiet reminders, simple counts, and mindful moments between work.
+        </p>
+        <span class="product-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:14px;height:14px;">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3.01-.4c1.02.01 2.05.14 3.01.4 2.28-1.55 3.28-1.23 3.28-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0Z"/>
+          </svg>
+          View on GitHub
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <p class="product-note">Open the Pebble GitHub repository to view source, issues, and release notes.</p>
+      </a>
+
+      <!-- Card 7: Sabah -->
       <a href="https://apps.apple.com/us/app/sabah/id6763389763" target="_blank" rel="noopener" class="product-card" data-card="sabah">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
-        <p class="product-number">06 / Morning</p>
+        <p class="product-number">07 / Morning</p>
         <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Sun rising -->
           <path d="M24 30 C19 30 15 26 15 21 C15 16 19 12 24 12 C29 12 33 16 33 21 C33 26 29 30 24 30Z" stroke="currentColor" stroke-width="1.5"/>
@@ -921,7 +952,7 @@
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
         </svg>
-        <p class="product-number">07 / Direction</p>
+        <p class="product-number">08 / Direction</p>
         <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Compass circle -->
           <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
@@ -1126,7 +1157,7 @@
         }
 
         // ── Card clicks
-        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'KhatamTogether', 'coming-soon': 'Noor · A Better Ramadan', sabah: 'Sabah · Quranic Alarm Clock', qibla: 'Qibla · Find Your Direction' };
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'KhatamTogether', 'coming-soon': 'Noor · A Better Ramadan', pebble: 'Pebble · Dhikr Tracker', sabah: 'Sabah · Quranic Alarm Clock', qibla: 'Qibla · Find Your Direction' };
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
