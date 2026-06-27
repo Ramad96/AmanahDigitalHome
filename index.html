@@ -219,6 +219,85 @@
       .products { grid-template-columns: 1fr; }
     }
 
+    /* ── Filter bars ── */
+    .filter-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      padding: 1rem 0 0;
+      margin-bottom: 2rem;
+      background: linear-gradient(to bottom, var(--dark) 75%, transparent 100%);
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.55rem 1.1rem;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .filter-btn.active {
+      color: var(--black);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .filter-btn:hover:not(.active) {
+      color: var(--gold-lt);
+      border-color: rgba(201,168,76,0.45);
+    }
+
+    .filter-bar-sub {
+      display: flex;
+      gap: 0.4rem;
+      padding-bottom: 0.85rem;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.25s ease;
+    }
+
+    .filter-bar-sub.visible {
+      max-height: 60px;
+      opacity: 1;
+    }
+
+    .filter-sub-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .filter-sub-btn.active {
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    .filter-sub-btn:hover:not(.active) {
+      color: var(--text);
+    }
+
     .product-card {
       position: relative;
       background: var(--surface);
@@ -231,7 +310,7 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.4s ease, transform 0.4s ease;
+      transition: border-color 0.4s ease, transform 0.4s ease, opacity 0.25s ease;
       cursor: pointer;
       opacity: 0;
     }
@@ -396,23 +475,106 @@
       background: rgba(201,168,76,0.08);
     }
 
+    /* ── CTA section ── */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 0 6rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .cta-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.3s ease;
+    }
+
+    .cta-btn:hover { opacity: 0.85; }
+
     /* ── Footer ── */
     footer {
       position: relative;
       z-index: 2;
       border-top: 1px solid var(--border);
-      padding: 2rem 0;
+      padding: 2.5rem 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
     }
 
     .footer-brand {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.95rem;
-      color: var(--muted);
+      color: var(--text);
       letter-spacing: 0.05em;
     }
+
+    .footer-tagline {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover { color: var(--gold); }
 
     .footer-copy {
       font-size: 0.7rem;
@@ -710,17 +872,29 @@
       <h1>Built with <em>purpose,</em><br />crafted with care</h1>
       <p class="hero-brand">An Islamic digital studio dedicated to creating impactful tools that nurture iman and serve the Ummah.</p>
       <div class="divider"></div>
-      <p class="hero-mission">Amanah Digital was established upon the intention of fulfilling an amanah: to build technology that uplifts faith, supports spiritual growth, and serves the Ummah with integrity. We ask Allah to place barakah in this work and accept it as sincere.</p>
-      <div class="divider" style="animation-delay:0.7s"></div>
     </div>
 
     <!-- Products -->
     <div id="products" class="products-section">
       <p class="products-eyebrow">Our Products</p>
+
+      <div class="filter-wrap">
+        <div class="filter-bar" role="group" aria-label="Filter products">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="app">Apps</button>
+          <button class="filter-btn" data-filter="web">Web Tools</button>
+        </div>
+        <div class="filter-bar-sub" id="filter-bar-sub" role="group" aria-label="Filter app type">
+          <button class="filter-sub-btn" data-subfilter="all">All</button>
+          <button class="filter-sub-btn active" data-subfilter="iphone">iPhone</button>
+          <button class="filter-sub-btn" data-subfilter="other">Other</button>
+        </div>
+      </div>
+
       <div class="products">
 
       <!-- Card 1: Sadaqah Jariyah Radio -->
-      <a href="https://radio.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="radio">
+      <a href="https://radio.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="radio" data-type="web">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -749,7 +923,7 @@
       </a>
 
       <!-- Card 2: Taraaweeh Counter -->
-      <div class="product-card" data-card="taraaweeh">
+      <div class="product-card" data-card="taraaweeh" data-type="app" data-app-type="other" data-app-order="4">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -796,7 +970,7 @@
       </div>
 
       <!-- Card 3: Islamic Quiz -->
-      <a href="https://quiz.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quiz">
+      <a href="https://quiz.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quiz" data-type="web">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -820,7 +994,7 @@
       </a>
 
       <!-- Card 4: KhatamTogether -->
-      <a href="https://quran.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quran-together">
+      <a href="https://quran.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="quran-together" data-type="web">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -858,7 +1032,7 @@
       </a>
 
       <!-- Card 5: Noor -->
-      <a href="https://apps.apple.com/gb/app/noor-daily-ibadah-tracker/id6760976099" target="_blank" rel="noopener" class="product-card" data-card="coming-soon">
+      <a href="https://apps.apple.com/gb/app/noor-daily-ibadah-tracker/id6760976099" target="_blank" rel="noopener" class="product-card" data-card="coming-soon" data-type="app" data-app-type="iphone" data-app-order="1">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -886,7 +1060,7 @@
       </a>
 
       <!-- Card 6: Pebble -->
-      <a href="https://github.com/Ramad96/Pebble" target="_blank" rel="noopener" class="product-card" data-card="pebble">
+      <a href="https://github.com/Ramad96/Pebble" target="_blank" rel="noopener" class="product-card" data-card="pebble" data-type="app" data-app-type="other" data-app-order="5">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -912,7 +1086,7 @@
       </a>
 
       <!-- Card 7: Sabah -->
-      <a href="https://apps.apple.com/us/app/sabah/id6763389763" target="_blank" rel="noopener" class="product-card" data-card="sabah">
+      <a href="https://apps.apple.com/us/app/sabah/id6763389763" target="_blank" rel="noopener" class="product-card" data-card="sabah" data-type="app" data-app-type="iphone" data-app-order="2">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -944,7 +1118,7 @@
       </a>
 
       <!-- Card 7: Qibla -->
-      <a href="https://qibla.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="qibla">
+      <a href="https://qibla.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="qibla" data-type="web">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -979,7 +1153,7 @@
         </span>
       </a>
 
-      <a href="https://apps.apple.com/us/app/muhasabah/id6778949153" target="_blank" rel="noopener" class="product-card" data-card="muhasabah">
+      <a href="https://apps.apple.com/us/app/muhasabah/id6778949153" target="_blank" rel="noopener" class="product-card" data-card="muhasabah" data-type="app" data-app-type="iphone" data-app-order="3">
         <svg class="corner" viewBox="0 0 28 28" fill="none">
           <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
             stroke="#c9a84c" stroke-width="0.8" fill="none"/>
@@ -1007,11 +1181,28 @@
     </div>
   </div>
 
+  <!-- CTA -->
+  <div class="wrapper">
+    <div class="cta-section">
+      <p class="cta-eyebrow">Stay Connected</p>
+      <h2 class="cta-heading">More tools are on their way</h2>
+      <p class="cta-desc">Have feedback, a dua, or just want to say salaam? We'd love to hear from you.</p>
+      <a href="mailto:amanahdigital1447@gmail.com" class="cta-btn">Get in Touch</a>
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="wrapper">
     <footer>
-      <span class="footer-brand">Amanah Digital</span>
-      <span class="footer-copy">© 2025 · Built with intention</span>
+      <div class="footer-left">
+        <span class="footer-brand">Amanah Digital</span>
+        <span class="footer-tagline">Built with intention</span>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:amanahdigital1447@gmail.com" class="footer-link">Contact</a>
+        <a href="https://support.amanahdigital.co.uk" target="_blank" rel="noopener noreferrer" class="footer-link">Support</a>
+        <span class="footer-copy">© 2026</span>
+      </div>
     </footer>
   </div>
 
@@ -1197,6 +1388,83 @@
           }).join('');
         }
       }
+    })();
+
+    // ── Product filter ──
+    (function () {
+      var filterBtns    = document.querySelectorAll('.filter-btn');
+      var subFilterBtns = document.querySelectorAll('.filter-sub-btn');
+      var subBar        = document.getElementById('filter-bar-sub');
+      var allCards      = document.querySelectorAll('.product-card');
+      var FADE_MS       = 200;
+      var currentFilter    = 'all';
+      var currentSubFilter = 'iphone';
+
+      function applyFilters() {
+        // Apply CSS order for apps view, reset otherwise
+        allCards.forEach(function (card) {
+          card.style.order = (currentFilter === 'app' && card.dataset.appOrder)
+            ? card.dataset.appOrder : '';
+        });
+
+        allCards.forEach(function (card) {
+          var typeMatch = currentFilter === 'all' || card.dataset.type === currentFilter;
+          var subMatch  = currentFilter !== 'app' || currentSubFilter === 'all'
+                          || card.dataset.appType === currentSubFilter;
+          var matches  = typeMatch && subMatch;
+          var isHidden = card.style.display === 'none';
+
+          if (!matches && !isHidden) {
+            card.style.opacity       = '0';
+            card.style.transform     = 'translateY(6px) scale(0.98)';
+            card.style.pointerEvents = 'none';
+            setTimeout(function () { card.style.display = 'none'; }, FADE_MS);
+          } else if (matches && isHidden) {
+            card.style.animation     = 'none';
+            card.style.opacity       = '0';
+            card.style.transform     = 'translateY(6px) scale(0.98)';
+            card.style.display       = '';
+            card.style.pointerEvents = '';
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                card.style.opacity   = '1';
+                card.style.transform = '';
+              });
+            });
+          }
+          // matches && !isHidden: already visible, leave it alone
+          // !matches && isHidden: already hidden, leave it alone
+        });
+
+        // Show sub-bar only when Apps tab is active
+        if (currentFilter === 'app') {
+          subBar.classList.add('visible');
+        } else {
+          subBar.classList.remove('visible');
+          // reset sub-filter silently so next Apps visit starts fresh
+          currentSubFilter = 'iphone';
+          subFilterBtns.forEach(function (b) { b.classList.remove('active'); });
+          subFilterBtns[1].classList.add('active');
+        }
+      }
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      subFilterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          subFilterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentSubFilter = btn.dataset.subfilter;
+          applyFilters();
+        });
+      });
     })();
   </script>
 
