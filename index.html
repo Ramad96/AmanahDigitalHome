@@ -323,7 +323,8 @@
     .product-card:nth-child(6) { animation: fadeUp 0.9s 1.25s ease forwards; }
     .product-card:nth-child(7) { animation: fadeUp 0.9s 1.4s ease forwards; }
     .product-card:nth-child(8) { animation: fadeUp 0.9s 1.55s ease forwards; }
-    .product-card:nth-child(9) { animation: fadeUp 0.9s 1.7s ease forwards; }
+    .product-card:nth-child(9)  { animation: fadeUp 0.9s 1.7s ease forwards; }
+    .product-card:nth-child(10) { animation: fadeUp 0.9s 1.85s ease forwards; }
 
     .product-card::before {
       content: '';
@@ -1177,6 +1178,37 @@
         </span>
       </a>
 
+      <!-- Card 10: Amal -->
+      <a href="https://amal.amanahdigital.co.uk" target="_blank" rel="noopener" class="product-card" data-card="amal" data-type="web">
+        <svg class="corner" viewBox="0 0 28 28" fill="none">
+          <polygon points="14,1 17,9 25,6 21,13 28,16 21,19 25,23 17,20 14,27 11,20 3,23 7,19 0,16 7,13 3,6 11,9"
+            stroke="#c9a84c" stroke-width="0.8" fill="none"/>
+        </svg>
+        <p class="product-number">10 / Dua</p>
+        <svg class="product-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Scroll body -->
+          <rect x="11" y="10" width="26" height="32" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <!-- Top roller -->
+          <rect x="9" y="8" width="30" height="5" rx="2.5" stroke="currentColor" stroke-width="1.3"/>
+          <!-- Bottom roller -->
+          <rect x="9" y="35" width="30" height="5" rx="2.5" stroke="currentColor" stroke-width="1.3"/>
+          <!-- Text lines representing duas -->
+          <line x1="16" y1="20" x2="32" y2="20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="16" y1="25" x2="32" y2="25" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="16" y1="30" x2="26" y2="30" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <h2 class="product-name">Amal<br /><span style="font-size:1.2rem;opacity:0.6;">A Home for Your Duas</span></h2>
+        <p class="product-desc">
+          A sacred space to keep your duas and gather the duas of those you love. Add what's in your heart, invite family and friends, and build a living collection of hope and remembrance.
+        </p>
+        <span class="product-cta">
+          Open Website
+          <svg viewBox="0 0 12 12" fill="none">
+            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
       </div>
     </div>
   </div>
@@ -1369,7 +1401,7 @@
         }
 
         // ── Card clicks
-        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'KhatamTogether', 'coming-soon': 'Noor · A Better Ramadan', pebble: 'Pebble · Dhikr Tracker', sabah: 'Sabah · Quranic Alarm Clock', qibla: 'Qibla · Find Your Direction' };
+        const cardNames = { radio: 'Sadaqah Jariyah Radio', taraaweeh: 'Taraaweeh Counter', quiz: 'Islamic Quiz', 'quran-together': 'KhatamTogether', 'coming-soon': 'Noor · A Better Ramadan', pebble: 'Pebble · Dhikr Tracker', sabah: 'Sabah · Quranic Alarm Clock', qibla: 'Qibla · Find Your Direction', muhasabah: 'Muhasabah · Daily Reflection', amal: 'Amal · A Home for Your Duas' };
         const cardList = document.getElementById('stat-cards-list');
         if (clicksErr || !clicks) {
           cardList.innerHTML = '<p class="analytics-empty">Could not load card data.</p>';
